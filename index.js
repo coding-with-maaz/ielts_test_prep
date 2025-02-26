@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
+const cors = require('cors'); // Importing cors
 const path = require('path');
 require('dotenv').config();
 
@@ -19,8 +19,15 @@ const writingQuestionRoutes = require('./routes/writingQuestionRoutes');
 
 const app = express();
 
+// CORS Configuration
+const corsOptions = {
+  origin: '*', // Allow all origins, you can specify allowed origins instead of '*'
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions)); // Apply CORS middleware with options
 app.use(express.json());
 
 // Serve static files from the uploads directory
