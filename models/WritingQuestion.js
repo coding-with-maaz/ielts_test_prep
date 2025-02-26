@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const writingQuestionSchema = new Schema({
+// Check if the model already exists to prevent overwriting
+const WritingQuestion = mongoose.models.WritingQuestion || mongoose.model('WritingQuestion', new Schema({
   questionText: {
     type: String,
     required: true,
@@ -38,8 +39,6 @@ const writingQuestionSchema = new Schema({
   diagramUrl: {
     type: String, // URL for the diagram if uploaded
   }
-});
-
-const WritingQuestion = mongoose.model('WritingQuestion', writingQuestionSchema);
+}));
 
 module.exports = WritingQuestion;
