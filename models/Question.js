@@ -35,9 +35,9 @@ const questionSchema = new Schema({
   instructions: {
     type: String
   },
-  diagramUrl: {
-    type: String
-  }
+  // diagramUrl: {
+  //   type: String
+  // }
 });
 
 const Question = mongoose.model('Question', questionSchema);
